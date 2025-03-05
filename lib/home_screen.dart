@@ -16,6 +16,7 @@ class _HomeScreenState extends State<HomeScreen> {
   final NotchBottomBarController _controller =
       NotchBottomBarController(index: 0);
   int maxCount = 2;
+
   @override
   void dispose() {
     _pageController.dispose();
@@ -23,24 +24,55 @@ class _HomeScreenState extends State<HomeScreen> {
     super.dispose();
   }
 
-  List<Widget> BottomBarPages = [
-    NotificationsScreen(),
+  final List<Widget> BottomBarPages = [
     MapsScreen(),
-    AstucesScreen()
+    AstucesScreen(),
+    NotificationsScreen(),
   ];
+
+  void onTap(int index) {
+    _pageController.jumpToPage(index);
+    _controller.index = index;
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: AnimatedNotchBottomBar(
-        notchBottomBarController: _pageController,
-      ),
-    );
+        body: PageView(
+          controller: _pageController,
+          children: List.generate(
+              BottomBarPages.length, (index) => BottomBarPages[index]),
+          onPageChanged: (index) {
+            _controller.index = index;
+          },
+        ),
+        bottomNavigationBar: AnimatedNotchBottomBar(
+          notchBottomBarController: _controller,
+          color: Colors.green,
+          showLabel: true,
+          textOverflow: TextOverflow.visible,
+          maxLine: 1,
+          shadowElevation: 5,
+          kBottomRadius: 5.0,
+          notchColor: Colors.white,
+          removeMargins: false,
+          showShadow: false,
+          bottomBarItems: [
+            BottomBarItem(
+                inActiveItem: Icon(Icons.map),
+                activeItem: Icon(Icons.map),
+                itemLabel: 'Maps'),
+            BottomBarItem(
+                inActiveItem: Icon(Icons.lightbulb),
+                activeItem: Icon(Icons.lightbulb),
+                itemLabel: 'Astuces'),
+            BottomBarItem(
+                inActiveItem: Icon(Icons.notifications),
+                activeItem: Icon(Icons.notifications),
+                itemLabel: 'Notifications')
+          ],
+          onTap: onTap,
+          kIconSize: 24.0,
+        ));
   }
 }
-
-// notchBottomBarController: notchBottomBarController,
-//           bottomBarItems: bottomBarItems,
-//           onTap: onTap,
-//           kIconSize: kIconSize,
-//           kBottomRadius: kBottomRadius

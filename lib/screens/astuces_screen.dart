@@ -10,6 +10,10 @@ class AstucesScreen extends StatefulWidget {
 class _AstucesScreenState extends State<AstucesScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      body: Center(
+        child: Text("Astuces"),
+      ),
+    );
   }
 }
