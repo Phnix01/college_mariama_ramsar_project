@@ -3,6 +3,9 @@
         android:label="colloge_mariama_ramsar_project"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyApdnBLqJeVW4c5t1Z32vBBzVBVWyJnYlg"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"

@@ -12,6 +12,10 @@ class _MapsScreenState extends State<MapsScreen> {
   late GoogleMapController mapController;
   final LatLng _initialPosition = LatLng(13.5126, 2.1128);
 
+  void _onMapCreated(GoogleMapController controller) {
+    mapController = controller;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,8 +26,9 @@ class _MapsScreenState extends State<MapsScreen> {
         foregroundColor: Colors.white,
       ),
       body: GoogleMap(
+        onMapCreated: _onMapCreated,
         initialCameraPosition:
-            CameraPosition(target: LatLng(0.0, 0.0), zoom: 15),
+            CameraPosition(target: _initialPosition, zoom: 12.0),
       ),
     );
   }
