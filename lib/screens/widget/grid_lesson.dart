@@ -1,11 +1,21 @@
 import 'package:flutter/material.dart';
 
 class GridLesson extends StatelessWidget {
-  const GridLesson({super.key});
+  GridLesson(
+      {super.key,
+      required this.numer,
+      required this.titre,
+      required this.description,
+      this.goToPage});
+  final String numer;
+  final String titre;
+  final String description;
+  final VoidCallback? goToPage;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      onTap: goToPage,
       child: Container(
         decoration: BoxDecoration(color: Colors.black54),
         child: Row(
@@ -16,7 +26,7 @@ class GridLesson extends StatelessWidget {
               color: Colors.green,
               padding: EdgeInsets.all(20),
               child: Text(
-                "1",
+                numer,
                 style: TextStyle(
                     fontSize: 30,
                     fontWeight: FontWeight.bold,
@@ -30,10 +40,11 @@ class GridLesson extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Que faire à une innondation",
+                    this.titre,
                     style: TextStyle(color: Colors.white, fontSize: 18),
                   ),
-                  Text("Que faire à une innondation"),
+                  Text(this.description,
+                      style: TextStyle(color: Colors.white, fontSize: 14)),
                 ],
               ),
             )
