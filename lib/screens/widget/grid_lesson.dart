@@ -17,38 +17,48 @@ class GridLesson extends StatelessWidget {
     return InkWell(
       onTap: goToPage,
       child: Container(
-        decoration: BoxDecoration(color: Colors.black54),
-        child: Row(
-          children: [
-            Container(
-              height: 80,
-              width: 50,
-              color: Colors.green,
-              padding: EdgeInsets.all(20),
-              child: Text(
-                numer,
-                style: TextStyle(
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white),
+        width: double.infinity,
+        height: 100,
+        decoration: BoxDecoration(
+          color: Colors.black54,
+        ),
+        child: FittedBox(
+          child: Row(
+            children: [
+              Container(
+                height: 80,
+                width: 50,
+                color: Colors.green,
+                padding: EdgeInsets.all(2),
+                child: Text(
+                  numer,
+                  style: TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
+                ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    this.titre,
-                    style: TextStyle(color: Colors.white, fontSize: 18),
-                  ),
-                  Text(this.description,
-                      style: TextStyle(color: Colors.white, fontSize: 14)),
-                ],
-              ),
-            )
-          ],
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      this.titre,
+                      style: TextStyle(
+                          overflow: TextOverflow.clip,
+                          color: Colors.white,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    Text(this.description,
+                        style: TextStyle(color: Colors.white, fontSize: 14)),
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
