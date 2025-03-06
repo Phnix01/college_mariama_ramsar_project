@@ -67,7 +67,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 activeItem: Icon(Icons.lightbulb),
                 itemLabel: 'Astuces'),
             BottomBarItem(
-                inActiveItem: Icon(Icons.notifications),
+                inActiveItem: Badge(
+                  child: Icon(Icons.notifications),
+                  backgroundColor: Colors.white,
+                  textColor: Colors.black,
+                  label: Text("3"),
+                ),
                 activeItem: Icon(Icons.notifications),
                 itemLabel: 'Notifications')
           ],

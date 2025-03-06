@@ -30,7 +30,7 @@ class _LessonScreenState extends State<LessonScreen> {
         //   ),
         // ),
         foregroundColor: Colors.white,
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.green,
       ),
       body: SafeArea(
           child: ListView(children: [

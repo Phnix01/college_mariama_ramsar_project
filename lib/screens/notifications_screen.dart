@@ -6,8 +6,49 @@ class NotificationsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text("Notificatins"),
+      appBar: AppBar(
+        title: Text("Alert-infos"),
+        centerTitle: true,
+        backgroundColor: Colors.green,
+        foregroundColor: Colors.white,
+      ),
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: ListView(
+            children: [
+              ListTile(
+                leading: Icon(Icons.thunderstorm),
+                title: Text("Alert Orage violent"),
+                subtitle: Text("Zone de Niamey à 20 h"),
+                trailing: Icon(
+                  Icons.share,
+                  color: Colors.white,
+                ),
+                tileColor: Colors.red,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10)),
+                textColor: Colors.white,
+              ),
+              const SizedBox(
+                height: 13,
+              ),
+              ListTile(
+                leading: Icon(Icons.air_outlined),
+                title: Text("Alert tempête de sable"),
+                subtitle: Text("Zone de Arlit - matin"),
+                trailing: Icon(
+                  Icons.share,
+                  color: Colors.white,
+                ),
+                tileColor: Colors.orange.shade300,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10)),
+                textColor: Colors.white,
+              )
+            ],
+          ),
+        ),
       ),
     );
   }
