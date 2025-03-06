@@ -18,7 +18,7 @@ class _AstucesScreenState extends State<AstucesScreen> {
         foregroundColor: Colors.white,
         centerTitle: true,
       ),
-      body: AstucesList(),
+      body: SafeArea(child: AstucesList()),
     );
   }
 }
