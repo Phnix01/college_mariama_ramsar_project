@@ -35,8 +35,8 @@ class NotificationsScreen extends StatelessWidget {
               ),
               ListTile(
                 leading: Icon(Icons.air_outlined),
-                title: Text("Alert tempête de sable"),
-                subtitle: Text("Zone de Arlit - matin"),
+                title: Text("Alerte vents violents"),
+                subtitle: Text("Zone de Niamey - il y a 2 jours"),
                 trailing: Icon(
                   Icons.share,
                   color: Colors.white,
